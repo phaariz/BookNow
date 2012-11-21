@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Maldives Hotel Resorts- Villa Hotels- Maldives Resort Vacations, Reservations</title>
+
+<link rel="stylesheet" type="text/css" href="stylesheets/styles.css" />
+<link rel="stylesheet" type="text/css" href="stylesheets/home.css" />
+<script language="javascript" type="text/javascript" src="http://www.villahotels.com/extension/villa/design/villa/javascript/jquery-1.3.2.min.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.villahotels.com/extension/villa/design/villa/javascript/jquery-ui-1.7.2.custom.min.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.villahotels.com/extension/villa/design/villa/javascript/main.js"></script>
+<script language="javascript" type="text/javascript" src="http://www.villahotels.com/extension/villa/design/villa/javascript/omniture/omniture.js"></script>		
+		<script type="text/javascript">
+			$(document).ready(function(){		runit = setInterval("show1()",10);	});
+		</script>
+	
+	<script type="text/javascript">
+		// set the calendar icon
+		calIcon = 'http://www.villahotels.com/extension/villa/design/villa/images/cal.gif';
+	</script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/autoadvance.js"></script>
+</head>
+
+<body>
+
+
+
+
+
+<div id="slideshow">
+
+	<ul class="slides">
+    	<li><img src="img/photos/1.jpg" width="710" height="340" alt="Sun Island Resort & Spa" /></li>
+        <li><img src="img/photos/2.jpg" width="710" height="340" alt="Royal Island Resort & Spa" /></li>
+        <li><img src="img/photos/3.jpg" width="710" height="340" alt="Holiday Island Resort & Spa" /></li>
+    </ul>
+
+    <span class="arrow previous"></span>
+    <span class="arrow next"></span>
+</div>
+
+
+
+					<!-- Reservation Widget: START -->
+					
+ <div class="reservation_widget">
+	<h2 class="book"></h2>
+	<form class="book_f" id="book_form" name="omni_reservation_form" action="" method="get"  target="_blank">
+		<fieldset>
+			<div class="select_hotel">
+				<label>Select a Hotel</label>
+				<select class="wide_s" name="HotelID" id="HotelID" onclick="changeFormAction()">
+					<option value="">Please select resort</option>
+											<option value="72935">Royal Island Resort &amp; Spa</option>
+											<option value="72936">Paradise Island Resort &amp; Spa</option>
+											<option value="72937">Sun Island Resort &amp; Spa</option>
+											<option value="72934">Holiday Island Resort &amp; Spa</option>
+									</select>
+			</div>
+			<div class="check">
+				<label>Check In</label>
+				<input class="mid" id="checkin" name="dateIn"/>
+			</div>
+			<div class="check">
+				<label>Check Out</label>
+				<input class="mid" id="checkout" name="dateOut"/>
+			</div>
+			<div class="sml_w">
+				<label>Rooms</label>
+				<select class="sml" name="Rooms">
+					<option>01</option>
+					<option>02</option>
+					<option>03</option>
+				</select>
+			</div>
+			<div class="sml_w">
+				<label>Adults</label>
+				<select class="sml" name="Adults">
+					<option>01</option>
+					<option>02</option>
+					<option>03</option>
+				</select>
+			</div>
+			<div class="sml_w">
+				<label>Kids</label>
+				<select class="sml" name="Children">
+					<option>00</option>
+					<option>01</option>	
+					<option>02</option>
+					<option>03</option>
+				</select>
+			</div>
+			<input type="image" class="go" src="http://www.villahotels.com/extension/villa/design/villa/images/go.gif" value="" alt="" />
+		</fieldset>
+	</form>
+
+ </div><!-- / reservation widget -->
+
+<script type="text/javascript">
+	$("#book_form").attr("action","https://booking.ihotelier.com/istay/istay.jsp?" + $('#HotelID').val());
+	$("#book_form").bind("submit", function(e){
+				e.preventDefault();
+				alert("You must select a resort");
+			});
+	
+	function changeFormAction(){
+		$("#book_form").attr("action","https://booking.ihotelier.com/istay/istay.jsp?" + $('#HotelID').val()); 
+	}
+	$('#HotelID').change(function(){
+		$("#book_form").unbind();
+		if ($("#HotelID").val() == 0){
+			$("#book_form").bind("submit", function(e){
+				e.preventDefault();
+				alert("You must select a resort");
+			});			
+		}	
+	});
+</script>
+
+					<!-- Reservation Widget: END -->
+					
+					<div id="reservation_widget">
+					    	<img src="img/villahotels.gif" width="710" />
+					</div>
+					<div class="info_bar">
+					<p>&copy; 2012 <a href="http://www.villahotels.com" title="Villa Hotels Marketing Department" rel="external">Villa Hotels</a>, Maldives. All Rights Reserved.</p>
+				  </div>
+</body>
+</html>
